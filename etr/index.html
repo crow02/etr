@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จำลองวงจรไฟฟ้า</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>จำลองวงจรไฟฟ้า</h1>
+        
+        <div class="circuit-container">
+            <div class="components">
+                <h2>อุปกรณ์</h2>
+                <button onclick="addComponent('resistor')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polyline points="2,12 6,12 8,6 10,18 12,6 14,18 16,6 18,12 22,12" fill="none" stroke="#e67e22" stroke-width="2"/></svg>
+                    </span> ตัวต้านทาน
+                </button>
+                <button onclick="addComponent('battery')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" fill="#2980b9"/><rect x="11" y="4" width="2" height="3" fill="#2980b9"/></svg>
+                    </span> แบตเตอรี่
+                </button>
+                <button onclick="addComponent('capacitor')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><line x1="8" y1="6" x2="8" y2="18" stroke="#27ae60" stroke-width="3"/><line x1="16" y1="6" x2="16" y2="18" stroke="#27ae60" stroke-width="3"/></svg>
+                    </span> ตัวเก็บประจุ
+                </button>
+                <button onclick="addComponent('led')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="12,6 16,18 8,18" fill="#c0392b"/><line x1="12" y1="2" x2="12" y2="6" stroke="#c0392b" stroke-width="2"/><line x1="10" y1="4" x2="14" y2="4" stroke="#c0392b" stroke-width="2"/></svg>
+                    </span> LED
+                </button>
+                <button onclick="addComponent('switch')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="4" stroke="#616161" stroke-width="3"/><circle cx="20" cy="4" r="2" fill="#616161"/></svg>
+                    </span> สวิตช์
+                </button>
+                <button onclick="addComponent('lamp')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" fill="#f1c40f" stroke="#f39c12" stroke-width="2"/></svg>
+                    </span> หลอดไฟ
+                </button>
+                <button onclick="addComponent('diode')">
+                    <span class="icon-svg">
+                        <svg width="24" height="24" viewBox="0 0 24 24"><polygon points="6,6 18,12 6,18" fill="#8e44ad"/><line x1="18" y1="6" x2="18" y2="18" stroke="#8e44ad" stroke-width="2"/></svg>
+                    </span> ไดโอด
+                </button>
+            </div>
+            
+            <div id="circuit-board" class="circuit-board" style="position:relative;">
+                <canvas id="circuit-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+                <!-- วงจรจะถูกสร้างที่นี่ด้วย JavaScript -->
+            </div>
+        </div>
+
+        <div class="calculations">
+            <h2>คำนวณค่าทางไฟฟ้า</h2>
+            <form id="calc-form">
+                <div class="input-group">
+                    <label>แรงดันไฟฟ้า (V):</label>
+                    <input type="number" id="voltage" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>ความต้านทาน (Ω):</label>
+                    <input type="number" id="resistance" step="0.1">
+                </div>
+                <button type="button" onclick="calculate()">คำนวณ</button>
+                <button type="button" onclick="calculateFromCircuit()">คำนวณจากวงจร</button>
+            </form>
+            <div id="results" class="results">
+                <p>กระแสไฟฟ้า: <span id="current">-</span> A</p>
+                <p>กำลังไฟฟ้า: <span id="power">-</span> W</p>
+                <p>แรงดันรวม: <span id="totalVoltage">-</span> V</p>
+                <p>ความต้านทานรวม: <span id="totalResistance">-</span> Ω</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

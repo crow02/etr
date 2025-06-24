@@ -1,0 +1,188 @@
+body {
+    background: #f0f4f8;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 32px #0001;
+}
+
+.circuit-container {
+    display: flex;
+    gap: 24px;
+    margin: 24px 0;
+}
+
+.components {
+    width: 220px;
+    padding: 16px 10px;
+    background: #f8fafc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.components button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    margin: 0;
+    background: #e3eafc;
+    color: #222;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 1px 4px #0001;
+}
+.components button:hover {
+    background: #b6d0fa;
+}
+.icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-right: 2px;
+}
+.icon-svg {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2px;
+}
+.icon-svg svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.circuit-board {
+    flex: 1;
+    min-height: 440px;
+    border: 2px solid #b6d0fa;
+    background: #fafdff;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 2px 12px #0001;
+    overflow: hidden;
+}
+
+.component {
+    position: absolute;
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 10px;
+    border: 2px solid #888;
+    background: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+    white-space: pre-line;
+    padding-top: 28px;
+    box-shadow: 0 2px 8px #0002;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.component.selected, .component:active {
+    border: 2px solid #1976d2;
+    box-shadow: 0 4px 16px #1976d233;
+}
+.component img.compicon,
+.component .compicon-svg {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+}
+
+.component.resistor { border-color: #e67e22; }
+.component.battery { border-color: #2980b9; }
+.component.capacitor { border-color: #27ae60; }
+.component.led { border-color: #c0392b; }
+.component.switch { border-color: #616161; }
+.component.lamp { border-color: #f1c40f; }
+.component.diode { border-color: #8e44ad; }
+
+.calculations {
+    background: #f8fafc;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    margin-top: 24px;
+}
+
+.input-group {
+    margin: 10px 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 6px;
+    width: 220px;
+    border-radius: 4px;
+    border: 1px solid #b6d0fa;
+    font-size: 1em;
+}
+
+.results {
+    margin-top: 20px;
+    padding: 12px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px #0001;
+}
+
+button {
+    padding: 8px 18px;
+    margin: 5px 0;
+    cursor: pointer;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #388e3c;
+}
+
+#edit-modal button {
+    padding: 6px 18px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: none;
+    background: #4CAF50;
+    color: #fff;
+    margin: 0 4px;
+    cursor: pointer;
+}
+#edit-modal button:hover {
+    background: #388e3c;
+}
+#edit-modal input, #edit-modal select {
+    padding: 4px 8px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    margin-bottom: 4px;
+}
